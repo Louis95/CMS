@@ -69,6 +69,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
+            app.logger.info('Invalid username or passworf')
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
@@ -85,6 +86,7 @@ def authorized():
     if request.args.get('state') != session.get("state"):
         return redirect(url_for("index"))  # No-OP. Goes back to Index page
     if "error" in request.args:  # Authentication/Authorization failure
+        app.logger.error('There is an error in the request')
         return render_template("auth_error.html", result=request.args)
     if request.args.get('code'):
         cache = _load_cache()
@@ -93,6 +95,7 @@ def authorized():
             scopes=Config.SCOPE,  # Misspelled scope would cause an HTTP 400 error here
             redirect_uri=url_for("authorized", _external=True))
         if "error" in result:
+            app.logger.error('There is an error obtaining token')
             return render_template("auth_error.html", result=result)
         session["user"] = result.get("id_token_claims")
         # Note: In a real app, we'd use the 'name' property from session["user"] below
