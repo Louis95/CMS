@@ -24,7 +24,7 @@ def home():
     app.logger.error('There is an error obtaining token')
 
     user = User.query.filter_by(username=current_user.username).first_or_404()
-    app.logger.info('Info')
+    app.logger.info('user just logged in ', user)
     posts = Post.query.all()
     return render_template(
         'index.html',
