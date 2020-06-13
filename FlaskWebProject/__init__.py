@@ -19,6 +19,8 @@ app.logger.addHandler(handler)
 Session(app)
 db = SQLAlchemy(app)
 login = LoginManager(app)
+app.logger.info('admin just logged in')
+
 login.login_view = 'login'
 
 import FlaskWebProject.views

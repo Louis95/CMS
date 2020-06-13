@@ -1,0 +1,9 @@
+[13/Jun/2020 15:23:31] "GET /login?next=%2F HTTP/1.1" 200 -
+[13/Jun/2020 15:23:31] "GET /static/content/bootstrap.min.css HTTP/1.1" 304 -
+[13/Jun/2020 15:23:31] "GET /static/scripts/modernizr-2.6.2.js HTTP/1.1" 304 -
+[13/Jun/2020 15:23:31] "GET /static/content/site.css HTTP/1.1" 304 -
+[13/Jun/2020 15:23:31] "GET /static/scripts/jquery-1.10.2.js HTTP/1.1" 200 -
+[13/Jun/2020 15:23:31] "GET /static/scripts/bootstrap.js HTTP/1.1" 304 -
+[13/Jun/2020 15:23:32] "GET /static/scripts/respond.js HTTP/1.1" 304 -
+
+[13/Jun/2020 15:23:32]  admin just logged in
