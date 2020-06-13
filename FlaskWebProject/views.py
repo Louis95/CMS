@@ -21,6 +21,8 @@ imageSourceUrl = 'https://'+ app.config['BLOB_ACCOUNT']  + '.blob.core.windows.n
 @app.route('/home')
 @login_required
 def home():
+    app.logger.error('There is an error obtaining token')
+
     user = User.query.filter_by(username=current_user.username).first_or_404()
     app.logger.info('Info')
     posts = Post.query.all()
